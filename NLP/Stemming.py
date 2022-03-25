@@ -1,15 +1,8 @@
-#!/usr/bin/env python
 # coding: utf-8
-
-# In[2]:
-
 
 import nltk
 from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
-
-
-# In[3]:
 
 
 paragraph = """I have three visions for India. In 3000 years of our history, people from all over 
@@ -36,37 +29,14 @@ paragraph = """I have three visions for India. In 3000 years of our history, peo
                I was lucky to have worked with all three of them closely and consider this the great opportunity of my life. 
                I see four milestones in my career"""
 
-
-# In[8]:
-
-
 sentences = nltk.sent_tokenize(paragraph)
 stemmer = PorterStemmer()
-
-
-# In[9]:
-
 
 # Stemming
 for i in range(len(sentences)):
     words = nltk.word_tokenize(sentences[i])
     words = [stemmer.stem(word) for word in words if word not in set(stopwords.words('english'))]
     sentences[i] = ' '.join(words)
-
-
-# In[13]:
-
-
-words
-
-
-# In[16]:
-
-
-" ".join(words)
-
-
-# In[ ]:
 
 
 
