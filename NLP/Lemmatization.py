@@ -1,16 +1,8 @@
-#!/usr/bin/env python
 # coding: utf-8
-
-# In[1]:
-
 
 import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
-
-
-# In[2]:
-
 
 paragraph = """I have three visions for India. In 3000 years of our history, people from all over 
                the world have come and invaded us, captured our lands, conquered our minds. 
@@ -37,15 +29,8 @@ paragraph = """I have three visions for India. In 3000 years of our history, peo
                I see four milestones in my career"""
 
 
-# In[3]:
-
-
 sentences = nltk.sent_tokenize(paragraph)
 lemmatizer = WordNetLemmatizer()
-
-
-# In[4]:
-
 
 # Lemmatization
 for i in range(len(sentences)):
@@ -53,20 +38,6 @@ for i in range(len(sentences)):
     words = [lemmatizer.lemmatize(word) for word in words if word not in set(stopwords.words('english'))]
     sentences[i]= ' '.join(words)
 
-
-# In[5]:
-
-
-words
-
-
-# In[11]:
-
-
-sentences[7]
-
-
-# In[ ]:
 
 
 
