@@ -1,14 +1,6 @@
-#!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import nltk
-
-
-# In[2]:
-
 
 paragraph = """I have three visions for India. In 3000 years of our history, people from all over 
                the world have come and invaded us, captured our lands, conquered our minds. 
@@ -35,9 +27,6 @@ paragraph = """I have three visions for India. In 3000 years of our history, peo
                I see four milestones in my career"""
 
 
-# In[3]:
-
-
 import re
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
@@ -46,13 +35,7 @@ ps = PorterStemmer()
 lemmatizer = WordNetLemmatizer()
 
 
-# In[4]:
-
-
 sentences = nltk.sent_tokenize(paragraph)
-
-
-# In[15]:
 
 
 corpus=[]
@@ -64,23 +47,12 @@ for i in range(len(sentences)):
     review = ' '.join(review)
     corpus.append(review)
 
-
-# In[19]:
-
-
+    
 # Creating the Bag of Words model
 from sklearn.feature_extraction.text import CountVectorizer
 cv = CountVectorizer(max_features = 1500)
 X = cv.fit_transform(corpus).toarray()
 
-
-# In[20]:
-
-
-X
-
-
-# In[ ]:
 
 
 
