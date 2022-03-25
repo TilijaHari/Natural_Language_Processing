@@ -1,16 +1,9 @@
-#!/usr/bin/env python
 # coding: utf-8
 
-# ### Tokenizing the sentences and words from paragraph
-
-# In[1]:
-
+### Tokenizing the sentences and words from paragraph
 
 import nltk
-
-
-# In[2]:
-
+nltk.download()
 
 paragraph = """I have three visions for India. In 3000 years of our history, people from all over 
                the world have come and invaded us, captured our lands, conquered our minds. 
@@ -37,28 +30,13 @@ paragraph = """I have three visions for India. In 3000 years of our history, peo
                I see four milestones in my career"""
 
 
-# In[4]:
-
-
 # Tokenizing the sentences
 sentences = nltk.sent_tokenize(paragraph)
 
-
-# In[11]:
-
-
 sentences[0:10]
-
-
-# In[5]:
-
 
 # Tokenizing the words
 words = nltk.word_tokenize(paragraph)
-
-
-# In[10]:
-
 
 words
 
