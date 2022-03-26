@@ -1,32 +1,15 @@
-#!/usr/bin/env python
 # coding: utf-8
-
-# In[1]:
-
 
 import nltk
 
-
-# In[4]:
-
-
-get_ipython().system('pip install gensim')
-
-
-# In[5]:
+# !pip install gensim
 
 
 from gensim.models import Word2Vec
 from nltk.corpus import stopwords
 
 
-# In[6]:
-
-
 import re
-
-
-# In[7]:
 
 
 paragraph = """I have three visions for India. In 3000 years of our history, people from all over 
@@ -54,9 +37,6 @@ paragraph = """I have three visions for India. In 3000 years of our history, peo
                I see four milestones in my career"""
 
 
-# In[8]:
-
-
 # Preprocessing the data
 text = re.sub(r'\[[0-9]*\]',' ',paragraph)
 text = re.sub(r'\s+',' ',text)
@@ -65,68 +45,32 @@ text = re.sub(r'\d',' ',text)
 text = re.sub(r'\s+',' ',text)
 
 
-# In[9]:
-
-
 # Preparing the dataset
 sentences = nltk.sent_tokenize(text)
 sentences = [nltk.word_tokenize(sentence) for sentence in sentences]
-
-
-# In[11]:
 
 
 for i in range(len(sentences)):
     sentences[i] = [word for word in sentences[i] if word not in stopwords.words('english')]
 
 
-# In[12]:
-
-
 # Training the Word2Vec model
 model = Word2Vec(sentences,min_count=1) # if min_count= 2(say).We generally skip the words that occur less than twice.
 
 
-# In[13]:
-
-
 model
-
-
-# In[29]:
-
 
 words = model.wv.key_to_index
 
-
-# In[30]:
-
-
 words
-
-
-# In[24]:
-
 
 # Finding word vectors
 vector = model.wv['war']
 
-
-# In[25]:
-
-
 vector
-
-
-# In[27]:
-
 
 # Most similar words
 similar = model.wv.most_similar('freedom')
-
-
-# In[28]:
-
 
 similar
 
