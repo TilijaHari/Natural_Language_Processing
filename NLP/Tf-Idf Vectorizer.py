@@ -1,14 +1,6 @@
-#!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 import nltk
-
-
-# In[2]:
-
 
 paragraph = """I have three visions for India. In 3000 years of our history, people from all over 
                the world have come and invaded us, captured our lands, conquered our minds. 
@@ -35,24 +27,14 @@ paragraph = """I have three visions for India. In 3000 years of our history, peo
                I see four milestones in my career"""
 
 
-# In[10]:
-
-
 # Cleaning the text
 import re
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 
-# In[11]:
-
-
 wordnet = WordNetLemmatizer()
 sentences = nltk.sent_tokenize(paragraph)
-
-
-# In[25]:
-
 
 corpus = []
 for i in range(len(sentences)):
@@ -63,54 +45,24 @@ for i in range(len(sentences)):
     review = ' '.join(review)
     corpus.append(review)
 
-
-# In[13]:
-
-
+    
 len(sentences)
-
-
-# In[14]:
 
 
 sentences[0]
 
-
-# In[19]:
-
-
 review
-
-
-# In[18]:
-
 
 type(review)
 
-
-# In[22]:
-
-
 review
-
-
-# In[30]:
-
 
 # Creating the TF-IDF model
 from sklearn.feature_extraction.text import TfidfVectorizer
 tfidf = TfidfVectorizer()
 X = tfidf.fit_transform(corpus).toarray()
 
-
-# In[31]:
-
-
 X
-
-
-# In[ ]:
-
 
 
 
